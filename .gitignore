@@ -1,2 +1,7 @@
 client/node_modules/
 server/node_modules/
+.idea/inspectionProfiles/
+.idea/modules.xml
+.idea/the-tracker.iml
+.idea/vcs.xml
+.idea/workspace.xml
