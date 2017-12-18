@@ -1,7 +1,5 @@
 <template>
-  <v-layout>
-    <v-flex xs6>
-      <panel title="Song Metadata">
+    <panel title="Song Metadata">
         <v-layout>
           <v-flex xs6>
             <div class="song-title">
@@ -20,37 +18,19 @@
             {{song.album}}
           </v-flex>
         </v-layout>
-      </panel>
-    </v-flex>
-    <v-flex xs6 class="ml-2">
-        <panel title="Tabs">
-            <textarea
-            readonly
-            v-model="song.tab"
-            ></textarea>
-        </panel>
-    </v-flex>
-  </v-layout>
+    </panel>
 </template>
 
 <script>
-  import SongsService from '@/services/SongsService'
-  import Panel from '@/components/Panel'
-  export default {
-    data() {
-      return {
-        song: {}
-      }
-    },
-    async mounted() {
-      const songId = this.$store.state.route.params.songId
-      this.song = (await SongsService.show(songId)).data
-    },
+import Panel from '@/components/Panel'
+export default {
+    props: [
+        'song'
+    ],
     components: {
-      Panel
+        Panel
     }
-  }
-
+}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
@@ -72,14 +52,5 @@
 .album-image {
     width: 70%;
     margin: 0 auto;
-}
-textarea {
-    width: 100%;
-    font-family: monospace;
-    border: none;
-    height: 500px;
-    border-style: none;
-    border-color: transparent;
-    overflow: auto;
 }
 </style>
